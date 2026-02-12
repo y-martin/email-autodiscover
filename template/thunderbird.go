@@ -7,7 +7,7 @@ import (
 
 const thunderbirdTemplate = `<?xml version="1.0" encoding="UTF-8"?>
 <clientConfig version="1.1">
-	<emailProvider id="{{.EmailProvider}}">
+	<emailProvider id="{{.Domain}}">
 	    <domain>{{.Domain}}</domain>
 
 	    <displayName>%EMAILADDRESS%</displayName>
@@ -15,18 +15,18 @@ const thunderbirdTemplate = `<?xml version="1.0" encoding="UTF-8"?>
 
 	    <incomingServer type="imap">
 			<hostname>{{.ImapHost}}</hostname>
-			<port>{{.ImapPort}}</port>
+			<port>993</port>
 			<socketType>SSL</socketType>
 			<authentication>password-cleartext</authentication>
-			<username>%EMAILADDRESS%</username>
+			<username>%EMAILLOCALPART%</username>
 		</incomingServer>
 
 	    <outgoingServer type="smtp">
 			<hostname>{{.SmtpHost}}</hostname>
-			<port>{{.SmtpPort}}</port>
-			<socketType>SSL</socketType>
+			<port>587</port>
+			<socketType>STARTTLS</socketType>
 			<authentication>password-cleartext</authentication>
-			<username>%EMAILADDRESS%</username>
+			<username>%EMAILLOCALPART%</username>
 	    </outgoingServer>
 	</emailProvider>
 </clientConfig>`

@@ -9,7 +9,7 @@ const outlookTemplate = `<?xml version="1.0" encoding="utf-8" ?>
 <Autodiscover xmlns="http://schemas.microsoft.com/exchange/autodiscover/responseschema/2006">
 	<Response xmlns="https://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a">
 		<User>
-			<DisplayName>{{.Email}}</DisplayName>
+			<DisplayName>{{.EmailLocalPart}}@{{.Domain}}</DisplayName>
 		</User>
 
 		<Account>
@@ -21,11 +21,11 @@ const outlookTemplate = `<?xml version="1.0" encoding="utf-8" ?>
 				<TTL>1</TTL>
 
 				<Server>{{.ImapHost}}</Server>
-				<Port>{{.ImapPort}}</Port>
+				<Port>993</Port>
 
-				<LoginName>{{.Email}}</LoginName>
+				<LoginName>{{.EmailLocalPart}}</LoginName>
 
-				<DomainRequired>on</DomainRequired>
+				<DomainRequired>off</DomainRequired>
 				<DomainName>{{.Domain}}</DomainName>
 
 				<SPA>off</SPA>
@@ -43,15 +43,15 @@ const outlookTemplate = `<?xml version="1.0" encoding="utf-8" ?>
 				<TTL>1</TTL>
 
 				<Server>{{.SmtpHost}}</Server>
-				<Port>{{.SmtpPort}}</Port>
+				<Port>587</Port>
 
-				<LoginName>{{.Email}}</LoginName>
+				<LoginName>{{.EmailLocalPart}}</LoginName>
 
-				<DomainRequired>on</DomainRequired>
+				<DomainRequired>off</DomainRequired>
 				<DomainName>{{.Domain}}</DomainName>
 
 				<SPA>off</SPA>
-				<SSL>on</SSL>
+				<Encryption>TLS</Encryption>
 				<AuthRequired>on</AuthRequired>
 			</Protocol>
 		</Account>
