@@ -1,6 +1,6 @@
 [Unit]
 Description=Monitoring system and time series database
-Require=network-online.target
+Requires=network-online.target
 After=network-online.target
 
 [Service]
