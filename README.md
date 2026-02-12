@@ -1,13 +1,13 @@
 # Email Autodiscover
 
-Provides IMAP/SMTP Autodiscover capabilities on Microsoft Outlook/Apple Mail, Autoconfig capabilities for Thunderbird, and Configuration Profiles for iOS/Apple Mail.
+Provides IMAP/SMTP Autodiscover capabilities on Microsoft Outlook/Apple Mail, Autoconfig capabilities for Thunderbird.
 
 The config files (and this README file, to a large extent) are copied from the excellent [Incruises autodiscover.xml](https://github.com/Incruises/autodiscover.xml) repo,
-but the code was re-written in Go instead of Java Script and the functionality to handle TLS/SSL connections was added.
+but the code was re-written in Go instead of Java Script.
 
 ## Running the Autodiscover Server
 
-To run the server, complile cmd/autodiscover/main and run it like so:
+To run the server, compile cmd/autodiscover/main and run it like so:
 
 ```
 autodiscover --config=<path to your config file>
@@ -35,11 +35,6 @@ Create a CNAME DNS Record:
 | Name, Host, Alias |  Value, Destination  |  TTL |
 |:-----------------:|:--------------------:|:----:|
 |     autoconfig    | {{app_domain}} | 3600 |
-
-## iOS / Apple Mail
-URL (GET): https://{{app_domain}}/email.mobileconfig?email=EMAIL_ADDRESS
-
-Redirect users to above URL and the MobileConfig Profile will be downloaded. The user will be instructed to install the profile to configure their email.
 
 ## Notes
 
