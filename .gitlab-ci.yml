@@ -1,0 +1,4 @@
+---
+
+include:
+  - 'https://framagit.org/okazoo-public/gitlabci/-/raw/master/pkg-gitlab-ci.yml'

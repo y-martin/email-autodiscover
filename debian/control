@@ -1,0 +1,14 @@
+Source: email-autodiscover
+Section: web
+Priority: optional
+Maintainer: Yannick Martin <yannick.martin@okazoo.eu>
+Build-Depends: debhelper (>=10), golang-go
+Homepage: https://framagit.org/okazoo/email-autodiscover
+Standards-Version: 4.1.2
+
+Package: email-autodiscover
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Email Autodiscover
+  Simple autoconfig, autodiscover email auto config server
+  for Thunderbird and Outlook

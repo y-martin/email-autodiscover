@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = configure ]; then
+    # Add prometheus user
+    adduser --quiet --system --home /doesnotexist --no-create-home \
+            --group --gecos "Email Autodiscover" email-autodiscover
+fi
